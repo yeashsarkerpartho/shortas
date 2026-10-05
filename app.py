@@ -27,6 +27,7 @@ config['detail_api'] = config['base_domain'] + '/wefeed-h5api-bff/subject/detail
 config['play_api'] = config['base_domain'] + '/wefeed-h5api-bff/subject/play'
 
 target_content_list = [
+    'detail/mahabharat-hindi-qV4oETYbuc2?id=1847636170218291288&scene=&page_from=rank_detail&type=/movie/detail',
     'detail/where-is-home-bengali-6XoMSqzVHc1?id=1011335773633364112&scene=&page_from=rank_detail&type=/movie/detail',
     'detail/little-poor-thing-rises-by-bearing-children-reigns-over-the-electronics-factory-bengali-8wiolm5dap?id=340656650174512800&scene=&page_from=rank_detail&type=/movie/detail',
     'detail/daughter-of-the-secret-tycoon-bengali-SNzLElsh1J2?id=2288047444120209032&scene=&page_from=rank_detail&type=/movie/detail',
