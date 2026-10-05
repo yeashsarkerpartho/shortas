@@ -14,7 +14,7 @@ app = Flask(__name__)
 CONFIG = {
     'base_domain': 'https://themoviebox.xyz',
     'ranking_path': '/ranking-list/eL6uk3fbsY4?id=4175575772020854200&page_from=more_SUBJECTS_MOVIE',
-    'output_file': os.path.join(os.path.dirname(__file__), 'scraped_data_output2.json'),
+    'output_file': os.path.join(os.path.dirname(__file__), 'sshortas_sars.json'),
     'category_name': 'Bengali Collection',
     'delay_between_episodes_ms': 120,
     'cooldown_seconds': 2,
