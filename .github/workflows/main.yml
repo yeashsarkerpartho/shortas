@@ -1,39 +1,24 @@
-name: Update All Data
+name: Update All Dataon:push:branches: [ main ]schedule:- cron: '0 */20 * * *'workflow_dispatch:jobs:build:runs-on: ubuntu-latestpermissions:contents: writesteps:
+- name: Checkout Repository
+  uses: actions/checkout@v4
 
-on:
-  push:
-    branches: [ main ]
-  schedule:
-    - cron: '0 */20 * * *'
-  workflow_dispatch: 
+- name: Set up Python
+  uses: actions/setup-python@v4
+  with:
+    python-version: '3.x'
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
+- name: Install Dependencies
+  run: pip install aiohttp requests urllib3
 
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
+- name: Run Update Script
+  run: python app.py
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.x'
-
-    - name: Install Dependencies
-      run: pip install aiohttp requests urllib3
-
-    - name: Run Update Script
-      run: python app.py
-
-    - name: Commit and Push changes
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add .
-        git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update data: $(date)"
-        git push
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+- name: Commit and Push changes
+  run: |
+    git config --local user.email "action@github.com"
+    git config --local user.name "GitHub Action"
+    git add .
+    git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update data: $(date)"
+    git push
+  env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
